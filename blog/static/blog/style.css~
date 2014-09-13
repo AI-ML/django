@@ -1,0 +1,249 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+fieldset, img {
+	border: 0;
+}
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-style: normal;
+	font-weight: normal;
+}
+ol, ul {
+	list-style: none;
+}
+caption, th {
+	text-align: left;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: bold;
+}
+q:before, q:after {
+	content: '';
+}
+abbr, acronym {
+	border: 0;
+}
+.clear {
+	clear: both;
+	font-size: 0px;
+	line-height: 0px;
+	display: block;
+}
+.last {
+	margin: 0 !important;
+}
+.pad_last {
+	padding: 0 !important;
+}
+.no_bg {
+	background: none !important;
+}
+
+/****************************************************************/
+
+a {
+	color: #000;
+	text-decoration: none;
+	outline: 0 none;
+}
+a:hover {
+	color: #000;
+	text-decoration: none;
+}
+h1 {
+	font-size: 30px;
+}
+h2 {
+	font-size: 24px;
+}
+h3 {
+	font-size: 18px;
+}
+h4 {
+	font-size: 16px;
+}
+h5 {
+	font-size: 14px;
+}
+h6 {
+	font-size: 12px;
+}
+/*----------------------------------------------------------------------*/
+html {
+}
+body {
+	color: #b1b1b1;
+	font-family: "Arial", Verdana, Tahoma;
+	font-size: 12px;
+	background: #ffffff;
+}
+.flt_lt {
+	float: left;
+	display: inline;
+}
+.flt_rt {
+	float: right;
+	display: inline;
+}
+/* ---------------------------------------------------------------
+-*/
+
+
+/* ----------------------- layout ----------*/
+.wrapper {
+	margin: 0 auto;
+	min-width: 980px;
+	overflow: auto;
+}
+
+/* ------------------ HEADER HERE -------------------*/
+.header {
+	width: 100%;
+	background: #1ca6d7;
+}
+.header-container {
+	width: 980px;
+	margin: 0 auto;
+	padding: 22px 0;
+}
+
+.header-container .logo a {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 38px;
+	color: #ffffff;
+	font-weight: normal;
+	display: block;
+}
+/*-------------------------------------------*/
+
+/* ------------------------- NAVIGATION HERE ---------------*/
+.nav {
+	width: 100%;
+	background: url(../images/nav-bg.jpg) repeat-x;
+}
+.nav-in {
+	width: 980px;
+	margin: 0 auto;
+}
+.nav-in ul {
+	width: 950px;
+	margin: 0 auto;
+}
+.nav-in ul li {
+	float: left;
+	display: inline-block;
+	background: ;
+	padding: 16px 37px 16px 0;
+	
+}
+.nav-in ul li a {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 16px;
+	color: #141414;
+	display: inline-block;
+}
+.nav-in ul li a span {
+}
+.nav-in ul li a:hover {
+}
+.ped {
+	padding-right: 0 !important;
+}
+/* ---------------------------------------------------------*/
+
+/* ------------------------ MIAN CONTENT HERE --------------*/
+.container {
+	width: 1200px;
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-right: 0;
+	padding-left: 0;
+	padding-bottom: 24px;
+	background: #ffffff;
+	overflow: auto
+}
+
+.content .comments{
+	width: 900px;
+	margin: 0 auto;
+	float: left;
+	padding-left: 20px
+}
+
+.content p {
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #333333;
+	font-weight: normal;
+	line-height: 25px;
+	padding: 0 9px 27px 9px;
+}
+
+.content h2 {
+    color: #333333;
+	font-weight: bold;
+}
+
+label{
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+    color: #333333;
+}
+
+input{
+    display: block;
+    width: 400px;
+    height: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+    color: #333333;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+textarea{
+    display: block;
+    width: 400px;
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+    color: #333333;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+#id_submit{
+    width: 100px;
+}
+.sidebar {
+	width: 250px;
+	margin: 0 auto;
+	float: right;
+	padding-right: 20px
+
+}
+.sidebar h4 {
+    color: #333333;
+	font-weight: bold;
+}
+
+.sidebar a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: #333333;
+	text-decoration: underline;
+	line-height: 25px;
+	
+}
+
+
+
