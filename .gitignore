@@ -3,4 +3,5 @@
 *.pyc~
 *.css~
 *.html~
+blog/migrations/*
 
