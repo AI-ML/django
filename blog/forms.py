@@ -1,9 +1,9 @@
 from django import forms
 
 class ContactForm(forms.Form):
-    your_name = forms.CharField(label='Name', max_length=100)
-    your_email = forms.EmailField(label='Email')
-    your_message = forms.CharField(label='Message',\
+    name = forms.CharField(label='Name', max_length=100)
+    email = forms.EmailField(label='Email')
+    message = forms.CharField(label='Message',\
                                 widget=forms.Textarea, max_length=5000)
 
 
@@ -15,7 +15,7 @@ class CommentForm(forms.Form):
                                
 
 class AddPostForm(forms.Form):
-    identifier = forms.CharField(label='Identifier',\
+    id_ = forms.CharField(label='Identifier',\
                                  max_length=100)
     heading = forms.CharField(label='Heading', max_length=500)
     url = forms.CharField(label='Url', max_length=100)
