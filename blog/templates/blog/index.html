@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
 
-{% block title %}dForData.com Blog{% endblock %}
+{% block title %}dForData.com{% endblock %}
 
 
 {% block header %}
@@ -11,31 +11,13 @@
 {% endblock %}
 
 
-{% block content %}
-
-    {% for post in blog_posts%}
-        <h2>{{ post.heading }}</h2>
-        <p><br>{{ post.content }}<p>
-    {% endfor %}
-
-{% endblock %}
-
-
-{% block comments %}
-
-    <div class="recorded_comments">
-    </div>
-    
-    <div class="post_comments">
-    
-        <form action="" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input id='id_submit' type="submit" value="Submit" />
-        </form>
-        
-    </div>
-    
+{% block sidebar %}
+        <h4>Articles</h4>
+        <ul>
+          {% for post in blog_posts %}
+          <li><a href={{ post.url }}>{{ post.heading }}</a></li>
+          {% endfor %}
+        </ul>
 {% endblock %}
 
 

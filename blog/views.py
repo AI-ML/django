@@ -1,46 +1,104 @@
 from django.shortcuts import render
-from django.template import RequestContext, loader
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect, Http404
+
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
+from django.core.exceptions import ObjectDoesNotExist
+
+from django.views.generic import View
 
 from blog.models import *
 from blog.forms import *
 
 
 def blog(request):
-    blog_posts = BlogPost.objects.all()
-    template = loader.get_template('blog/index.html')
-    form = CommentForm()
-    context = RequestContext(request, {
-        'blog_posts': blog_posts, 'form': form,
-    })
-    return HttpResponse(template.render(context))
+    blog_posts = BlogPost.objects.order_by('ide')
+       
+    return render(request, 'blog/bloghome.html',
+                                         {'blog_posts': blog_posts})
 
 def add_post(request):
-    if request.method == 'POST':
-        form = AddPostForm(request.POST)
-        if form.is_valid():
-            useremail = form.cleaned_data['email']
+    
+    # If not an Authenticated user, redirects to login page
+    if not request.user.is_authenticated(): 
+        return HttpResponseRedirect('/p/login')
+    
+    form = AddPostForm(request.POST)
+    
+    if request.method == 'POST' and form.is_valid():
+                
+            posturl = form.cleaned_data['url']
+            postheading = form.cleaned_data['heading']
+            identifier = form.cleaned_data['identifier']
             
-            #retrieving a Users object
-            user = Users.objects.get(email=useremail)
+            #create a BlogPost Object or get one
+            try:
+                blogpost = BlogPost.objects.get(ide=identifier)
+            except ObjectDoesNotExist:
+                blogpost = BlogPost.objects.create(ide=identifier)
+                blogpost.date_published = datetime.date.today()
             
-            formurl = form.cleaned_data['url']
-            formheading = form.cleaned_data['heading']
-            
-            #create a BlogPost object
-            blogpost = BlogPost.objects.create(url=formurl,\
-                                         heading=formheading )
-            blogpost.date_published = datetime.date.today()
+            blogpost.url = posturl
+            blogpost.heading = postheading
             blogpost.date_modified = datetime.date.today()
-            blogpost.authors.add(user)
+            blogpost.authors.add(request.user)
+            blogpost.save()
             
-            formpara = form.cleaned_data['paragraph']
+            paragraph = form.cleaned_data['paragraph']
+            order = form.cleaned_data['order']
+            tags = form.cleaned_data['tags']
+            
+            #First para of a post also saved in BlogPost table
+            if order == 0:
+                blogpost.paragraph = paragraph
+            
+            blogpost.save()   
             #create a Paragraph object
-            para = Paragraphs.objects.create(paragraph = formpara,\
+            try:
+                para = Paragraphs.objects.get(post=blogpost,\
+                                              order=order)
+            except ObjectDoesNotExist:
+                para = Paragraphs.objects.create(paragraph=paragraph,\
                                             post=blogpost)
-            para.date_published = datetime.date.today()
+                para.date_published = datetime.date.today()
+                
             para.date_modified = datetime.date.today()
+            para.order = order
+            para.tags = tags
+            para.save()
+    else:
+        return render(request, 'blog/add_post.html',{'form': form})
 
+
+def post(request, posturl):
+    try:
+        blogpost = BlogPost.objects.get(url=posturl)
+        paras = Paragraphs.objects.filter(post=blogpost).\
+                                                    order_by('order')
+        
+    except ObjectDoesNotExist:
+        raise Http404
+    return render(request, 'blog/post.html', {'paras':paras,\
+                                              'blogpost':blogpost})
+    
+                
+def login(request):
+    
+    form = LoginForm(request.POST)
+    
+    if request.method == 'POST' and form.is_valid():
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            auth_login(request,user)
+            #redirects to new url
+            return HttpResponseRedirect('/blog/add')
+        
+    return render(request, 'blog/login.html',{'form': form})    
+    
+    
+    
     
 def contact_us(request):
     # if this is a POST request we need to process the form data

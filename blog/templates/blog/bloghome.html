@@ -1,0 +1,10 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+
+    {% for post in blog_posts  %}
+        <a href={{ post.url }}><h2>{{ post.heading }}</h2></a>
+        <p><br>{{ post.paragraph }}<p>
+    {% endfor %}
+    
+{% endblock %}
