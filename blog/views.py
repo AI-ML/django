@@ -29,18 +29,18 @@ def add_post(request):
                 
             posturl = form.cleaned_data['url']
             postheading = form.cleaned_data['heading']
-            identifier = form.cleaned_data['identifier']
-            
+            identifier = form.cleaned_data['id_']
+            date = datetime.date.today()
             #create a BlogPost Object or get one
             try:
                 blogpost = BlogPost.objects.get(ide=identifier)
             except ObjectDoesNotExist:
-                blogpost = BlogPost.objects.create(ide=identifier)
-                blogpost.date_published = datetime.date.today()
+                blogpost = BlogPost.objects.create(ide=identifier,\
+                                date_published=date, date_modified=date)
             
             blogpost.url = posturl
             blogpost.heading = postheading
-            blogpost.date_modified = datetime.date.today()
+            blogpost.date_modified = date
             blogpost.authors.add(request.user)
             blogpost.save()
             
@@ -53,21 +53,20 @@ def add_post(request):
                 blogpost.paragraph = paragraph
             
             blogpost.save()   
-            #create a Paragraph object
+            #get or create a Paragraph object
             try:
                 para = Paragraphs.objects.get(post=blogpost,\
                                               order=order)
             except ObjectDoesNotExist:
                 para = Paragraphs.objects.create(paragraph=paragraph,\
-                                            post=blogpost)
-                para.date_published = datetime.date.today()
+                                            post=blogpost,order=order,\
+                                    date_published=date,date_modified=date)
                 
-            para.date_modified = datetime.date.today()
-            para.order = order
+            para.date_modified = date
             para.tags = tags
             para.save()
-    else:
-        return render(request, 'blog/add_post.html',{'form': form})
+    
+    return render(request, 'blog/add_post.html',{'form': form})
 
 
 def post(request, posturl):
@@ -106,12 +105,15 @@ def contact_us(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            c = Users( name=form.cleaned_data['your_name'],\
-                          email=form.cleaned_data['your_email'],\
-                          message=form.cleaned_data['your_message'])
+            date = datetime.date.today()
+            user = Users.objects.create(name=form.cleaned_data['name'],\
+                          email=form.cleaned_data['email'],date=date)
+                          
+            message = Messages.objects.create(user=user,date=date,\
+                                        message=form.cleaned_data['message'])
             
-            c.save()
             form_uploaded = True
+            print 'Data valid'
         else:
             print 'Data invalid'
      
