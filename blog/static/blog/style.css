@@ -3,68 +3,29 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
 	padding: 0;
 	outline: none;
 }
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-fieldset, img {
-	border: 0;
-}
-address, caption, cite, code, dfn, em, strong, th, var {
-	font-style: normal;
-	font-weight: normal;
-}
+
 ol, ul {
 	list-style: none;
 }
-caption, th {
-	text-align: left;
-}
+
 h1, h2, h3, h4, h5, h6 {
 	font-size: 100%;
-	font-weight: bold;
-}
-q:before, q:after {
-	content: '';
-}
-abbr, acronym {
-	border: 0;
-}
-.clear {
-	clear: both;
-	font-size: 0px;
-	line-height: 0px;
-	display: block;
-}
-.last {
-	margin: 0 !important;
-}
-.pad_last {
-	padding: 0 !important;
-}
-.no_bg {
-	background: none !important;
 }
 
-/****************************************************************/
-
-a {
-	color: #000;
-	text-decoration: none;
-	outline: 0 none;
-}
-a:hover {
-	color: #000;
-	text-decoration: none;
-}
 h1 {
 	font-size: 30px;
+	line-height: 32px;
+	padding: 0 9px 10px 0;
 }
 h2 {
 	font-size: 24px;
+	line-height: 26px;
+	padding: 0 9px 10px 0;
 }
 h3 {
 	font-size: 18px;
+	line-height: 18px;
+	padding: 0 9px 10px 0;
 }
 h4 {
 	font-size: 16px;
@@ -75,182 +36,187 @@ h5 {
 h6 {
 	font-size: 12px;
 }
+
+a {
+	color: #000;
+	text-decoration: none;
+	outline: 0 none;
+}
+
 /*----------------------------------------------------------------------*/
 html {
 }
 body {
-	color: #b1b1b1;
-	font-family: "Arial", Verdana, Tahoma;
-	font-size: 12px;
-	background: #ffffff;
+	color: #404040;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	
 }
-.flt_lt {
-	float: left;
-	display: inline;
-}
-.flt_rt {
-	float: right;
-	display: inline;
-}
-/* ---------------------------------------------------------------
--*/
-
 
 /* ----------------------- layout ----------*/
-.wrapper {
+.container {
 	margin: 0 auto;
-	min-width: 980px;
+	min-width: 1150px;
 	overflow: auto;
 }
 
+.container-inner {
+    margin: 0 auto;
+	min-width: 1150px;
+	overflow: auto;
+}
+
+.footer {
+    margin: 0 auto;
+	min-width: 1150px;
+}
 /* ------------------ HEADER HERE -------------------*/
 .header {
-	width: 100%;
-	background: #1ca6d7;
+	width: 1200px;
+	background: #474747;
+	overflow: auto;
 }
-.header-container {
-	width: 980px;
-	margin: 0 auto;
-	padding: 22px 0;
+.header-inner {
+	width: 940px;
+	margin-left: 130px;
+	margin-right: 130px;
+	overflow: auto;
 }
 
-.header-container .logo a {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+.header-content {
+    width: 940px;
+	
+	margin-top: 40px;
+	overflow: auto;
+}
+
+.header-content .logo a{
 	font-size: 38px;
-	color: #ffffff;
+	color: #ffffee;
 	font-weight: normal;
 	display: block;
+	color: #fff;
 }
-/*-------------------------------------------*/
-
+s
 /* ------------------------- NAVIGATION HERE ---------------*/
 .nav {
-	width: 100%;
-	background: url(../images/nav-bg.jpg) repeat-x;
+	width: 1200px;
+	background: #474747;
+	overflow: auto;
 }
+
 .nav-in {
-	width: 980px;
-	margin: 0 auto;
+    width: 940px;
+	margin-left: 130px;
+	margin-right: 130px;
+	overflow: auto;
 }
 .nav-in ul {
-	width: 950px;
+	width: 940px;
+	margin-left: 20px;
 	margin: 0 auto;
 }
 .nav-in ul li {
 	float: left;
 	display: inline-block;
-	background: ;
 	padding: 16px 37px 16px 0;
 	
 }
 .nav-in ul li a {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-weight: normal;
-	font-size: 16px;
-	color: #141414;
+	font-size: 14px;
 	display: inline-block;
+	color: #fff;
 }
-.nav-in ul li a span {
-}
-.nav-in ul li a:hover {
-}
-.ped {
-	padding-right: 0 !important;
-}
-/* ---------------------------------------------------------*/
 
-/* ------------------------ MIAN CONTENT HERE --------------*/
-.container {
+/* ------------------------ Main Layout --------------*/
+.content {
 	width: 1200px;
-	margin: 0 auto;
-	padding-top: 20px;
+	padding-top: 60px;
 	padding-right: 0;
 	padding-left: 0;
 	padding-bottom: 24px;
-	background: #ffffff;
 	overflow: auto
 }
-
-.content{
-	width: 900px;
+.content-inner{
+	width: 940px;
+	margin-left: 130px;
+	margin-right: 130px;
+}
+.alpha {
+	width: 700px;
 	margin: 0 auto;
 	float: left;
-	padding-left: 20px
-}
 
+}
+.beta {
+    width: 240px;
+	margin: 0 auto;
+	float: right;
+}
 .comments{
-	width: 900px;
-	margin: 0 auto;
+	width: 700px;
 	float: left;
-	padding-left: 20px
+    margin-left: 130px;
+	margin-right: 130px;
 }
+
+.contact {
+    width: 450px;
+    border: 25px solid #f1f1f1;
+    border-radius: 25px;
+    outline: #cfcfcf solid thin;
+    float: center;
+}
+
+.contact-inner {
+    width: 430px;
+    padding: 10px 10px 10px 10px;
+    outline: #cfcfcf solid thin;
+}
+
+/* ------------------------Elements --------------*/
 
 .content p {
-    font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	color: #333333;
+	font-size: 16px;
 	font-weight: normal;
-	line-height: 25px;
-	padding: 0 9px 27px 9px;
+	line-height: 1.5;
+	padding: 10px 9px 10px 0;
 }
 
-.content h2 {
-    color: #333333;
-	font-weight: bold;
+.content a {
+    color: #404040;
+}
+
+.beta a {
+    line-height: 120%;
+}
+
+.beta li {
+    line-height: 22px;
+    padding-top: 10px;
+    
 }
 
 label{
-    display: block;
-    font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
-    color: #333333;
+    width: 100px;
+    padding: 25px 0 5px 0;
+    display:block;
 }
 
-input{
+input {
     display: block;
-    width: 400px;
+    width: 420px;
     height: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
-    color: #333333;
-    margin-top: 7px;
-    margin-bottom: 7px;
 }
 
 textarea{
     display: block;
-    width: 400px;
-    font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
-    color: #333333;
-    margin-top: 7px;
-    margin-bottom: 7px;
+    margin: 0 0 25px 0;
+    width: 420px;
 }
 
 #id_submit{
     width: 100px;
 }
-.sidebar {
-	width: 250px;
-	margin: 0 auto;
-	float: right;
-	padding-right: 20px
-
-}
-.sidebar h4 {
-    color: #333333;
-	font-weight: bold;
-}
-
-.sidebar a {
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bold;
-	font-size: 13px;
-	color: #333333;
-	text-decoration: underline;
-	line-height: 25px;
-	
-}
-
-
-

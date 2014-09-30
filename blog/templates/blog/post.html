@@ -4,7 +4,7 @@
 {% block content %}
     <h2>{{ blogpost.heading }}</h2>
     {% for para in paras %}
-        <p>{{ para.paragraph }}<p>
+        <p>{{ para.paragraph|safe }}</p>
     {% endfor %}
 
 {% endblock %}

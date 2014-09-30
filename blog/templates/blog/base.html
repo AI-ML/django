@@ -2,60 +2,68 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+    <link rel="stylesheet" type="text/css" 
+    href="{% static 'blog/style.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}dForData{% endblock %}</title>
 </head>
 
 <body>
-  <div class="wrapper">
-    
-    <div class="header">
-      <div class="header-container">
-        {% block header %}
-          <div class="logo"> <a href="#">dForData</a> </div>
-        {% endblock %}
-        <div class="clear"></div>
+  <div class="container">
+    <div class="container-inner">
+      <div class="header">
+        <div class="header-inner">
+          <div class="header-content">
+            {% block header %}
+              <h1 class="logo"> <a href="http://www.dfordata.com">dForData</a> 
+              </h1>
+            {% endblock %}
+          </div>
+        </div>
+            
+        <!-- Nav start -->
+        <div class="nav">
+          <div class="nav-in">
+            <ul>
+              {% block nav %}
+              <li class="last"><a href="/">Home </a></li>
+              <li><a href="/p/about">About us </a></li>
+              <li><a href="#">Services </a></li>
+              <li><a href="/blog/add">Add Post </a></li>
+              <li><a href="/blog">Blog </a></li>
+              <li class="no_bg ped"><a href="/p/contact">Contact</a></li>
+              {% endblock %}
+            </ul>
+            
+          </div>
+        </div>
       </div>
-    </div>
-        
-    <!-- Nav start -->
-    <div class="nav">
-      <div class="nav-in">
-        <ul>
-          {% block nav %}
-          <li class="last"><a href="/">Home </a></li>
-          <li><a href="/p/about">About us </a></li>
-          <li><a href="#">Services </a></li>
-          <li><a href="/blog/add">Add Post </a></li>
-          <li><a href="/blog">Blog </a></li>
-          <li class="no_bg ped"><a href="/p/contact">Contact</a></li>
-          {% endblock %}
-        </ul>
-        <div class="clear"></div>
-      </div>
-    </div>
-    <!-- Nav end --> 
+          <!-- Nav end --> 
         
         
-    <!-- maincontent Starts -->
-    <div class="container">
-    
+      <!-- maincontent Starts -->
       <div class="content">
-        {% block content %}{% endblock %}
-      </div>
+        <div class='content-inner'>
+          <div class="alpha">
+            {% block content %}{% endblock %}
+          </div>
 
       
-      <div class="sidebar">
-        {% block sidebar %}{% endblock %}
-      </div>
+          <div class="beta">
+            {% block sidebar %}{% endblock %}
+          </div>
+        </div>
       
-      
-      <div class="comments">
-        {% block comments %}{% endblock %}
-      </div>
+        <div class="comments">
+            {% block comments %}{% endblock %}
+        </div>
             
+      </div>
     </div>
-        
+    
+    </div class="footer">
+    </div>
+    
   </div>
     
 </body>

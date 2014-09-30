@@ -2,7 +2,7 @@
 
 {% block content %}
     
-    <form action="/blog/add_post" method="post">
+    <form action="/blog/add" method="post">
     {% csrf_token %}
     {{ form }}
     <input id='id_submit' type="submit" value="Submit" />

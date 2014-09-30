@@ -3,19 +3,11 @@
 {% block title %}dForData.com{% endblock %}
 
 
-{% block header %}
-    <div class="logo">
-        <a href="#">dForData Blog</a> </div>
-    </div>
-    
-{% endblock %}
-
-
 {% block sidebar %}
         <h4>Articles</h4>
         <ul>
           {% for post in blog_posts %}
-          <li><a href={{ post.url }}>{{ post.heading }}</a></li>
+          <li><a href="http://127.0.0.1:8000/blog/post/{{ post.url }}">{{ post.heading }}</a></li>
           {% endfor %}
         </ul>
 {% endblock %}

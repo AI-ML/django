@@ -58,10 +58,10 @@ def add_post(request):
                 para = Paragraphs.objects.get(post=blogpost,\
                                               order=order)
             except ObjectDoesNotExist:
-                para = Paragraphs.objects.create(paragraph=paragraph,\
-                                            post=blogpost,order=order,\
+                para = Paragraphs.objects.create(post=blogpost,order=order,\
                                     date_published=date,date_modified=date)
-                
+            
+            para.paragraph = paragraph
             para.date_modified = date
             para.tags = tags
             para.save()

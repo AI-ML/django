@@ -50,3 +50,6 @@ class BlogTests( TestCase ):
                                 'email':'salil@dfordata.com','message':'Hi'})
         self.assertEqual(response.status_code, 200)
         
+        
+        
+        

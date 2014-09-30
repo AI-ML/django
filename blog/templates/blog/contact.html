@@ -2,17 +2,19 @@
 
 
 {% block content %}
-
-    {% if form_uploaded %}
-        <h2>Thanks for contacting me. I will revert back ASAP.</h2>
-    {% endif %}
+    <div class="contact">
+      <div class="contact-inner">
+        {% if form_uploaded %}
+          <h2>Thanks for contacting me. I will revert back ASAP.</h2>
+        {% endif %}
     
-    <form action="/p/contact" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input id='id_submit' type="submit" value="Submit" />
-    </form>
-
+        <form action="/p/contact" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input id='id_submit' type="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
 {% endblock %}
 
 {% block sidebar %}
